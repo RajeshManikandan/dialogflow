@@ -27,8 +27,7 @@ restService.post('/audio', function(req, res) {
     var speech = '';
     if (!req.body.queryResult.parameters.AudioSample){
       return res.json({
-        speech: "Something went wrong!!",
-        displayText: JSON.stringify(req.body.queryResult.parameters.AudioSample),
+        fulfillmentText:'Something went wrong!!'
         source: 'webhook-echo-sample'
     });
     }
