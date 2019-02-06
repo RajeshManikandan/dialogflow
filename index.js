@@ -15,7 +15,7 @@ restService.use(bodyParser.json());
 
 restService.post('/echo', function(req, res) {
     console.log(req);
-    var speech = req.body && req.body.echoText ? req.body.echoText : 'Seems like some problem. Speak again.';
+    var speech = req.body && req.body.queryResult.parameters.echoText ? req.body.queryResult.parameters.echoText : 'Seems like some problem. Speak again.';
     return res.json({
         fulfillmentText:speech,
         source: 'webhook-echo-sample'
