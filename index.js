@@ -25,14 +25,14 @@ restService.post('/echo', function(req, res) {
 
 restService.post('/audio', function(req, res) {
     var speech = '';
-    if (!req.body.AudioSample){
+    if (!req.body.queryResult.parameters.AudioSample){
       return res.json({
         speech: "Something went wrong!!",
-        displayText: JSON.stringify(req.body),
+        displayText: JSON.stringify(req.body.queryResult.parameters.AudioSample),
         source: 'webhook-echo-sample'
     });
     }
-    switch (req.body.AudioSample.toLowerCase().trim()) {
+    switch (req.body.queryResult.parameters.AudioSample.toLowerCase().trim()) {
         //Speech Synthesis Markup Language
         case 'music one':
             speech =
