@@ -17,8 +17,7 @@ restService.post('/echo', function(req, res) {
     console.log(req);
     var speech = req.body && req.body.echoText ? req.body.echoText : 'Seems like some problem. Speak again.';
     return res.json({
-        speech: speech,
-        displayText: speech,
+        fulfillmentText:speech,
         source: 'webhook-echo-sample'
     });
 });
@@ -28,8 +27,6 @@ restService.post('/audio', function(req, res) {
     if (!req.body.queryResult.parameters.AudioSample){
       return res.json({
         fulfillmentText:'Something went wrong!!',
-        speech: 'Something went wrong!!',
-        displayText: 'Something went wrong!!',
         source: 'webhook-echo-sample'
     });
     }
